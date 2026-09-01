@@ -2,11 +2,11 @@ let test = (function ticTacToe() {
   // Have all code for the game be in here
 
   const GameData = {
-    gameBoard: {
-      row0: ['', '', ''],
-      row1: ['', '', ''],
-      row2: ['', '',''],
-    },
+    gameBoard: [
+      '', '', '',
+      '', '', '',
+      '', '', ''
+    ],
     player1: {
       symbol: "X",
       winner: false
@@ -21,10 +21,10 @@ let test = (function ticTacToe() {
   }
 
 
-  function play(player, row, col) {
+  function play(player, cell) {
     //claim the grid with the players symbol
-    if (GameData.gameBoard[`row${row}`][col] === '') {
-      GameData.gameBoard[`row${row}`][col] = GameData[player].symbol;
+    if (GameData.gameBoard[cell] === '') {
+      GameData.gameBoard[cell] = GameData[player].symbol;
        console.log(GameData.gameBoard);
     } else {
       return;
@@ -37,11 +37,19 @@ let test = (function ticTacToe() {
     //set the currentPlayer
   }
 
-  function checkWin() {
-    //check all the squares
-    // check each row
-    // check each column
-    //
+  function checkWin(player) {
+    const winningLines = [
+       [0, 1, 2],
+       [3, 4, 5],
+       [6, 7, 8],
+       [0, 3, 6],
+       [1, 4, 7],
+       [2, 5, 8],
+       [0, 4, 8],
+       [2, 4, 6],
+     ];
+
+
   }
 
   return {
