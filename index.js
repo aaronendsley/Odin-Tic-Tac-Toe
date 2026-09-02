@@ -87,7 +87,30 @@
   }
 
   function createPlayerStats() {
-
+    const getUserNames = document.getElementById('userForm');
+    getUserNames.addEventListener('submit', function (event) {
+      event.preventDefault();
+      GameData.player1.name = getUserNames[0].value;
+      GameData.player2.name = getUserNames[1].value;
+      document.getElementById('get_user_names').style.display = "none"
+      getUserNames[0].value = ""
+      getUserNames[1].value = ""
+      GameData.message = `${GameData.player1.name} it is your turn!`
+      changeMessage();
+      updateUIScore('player1');
+      updateUIScore('player2');
+      document.getElementById('player1_name').textContent = GameData.player1.name;
+      document.getElementById('player2_name').textContent = GameData.player2.name;
+    })
   }
+
+  function changeMessage() {
+    document.getElementById('message').textContent = GameData.message;
+  }
+
+  function updateUIScore(player) {
+    document.getElementById(`${player}_score`).textContent = GameData[player].score
+  }
+
   setUpInterface();
 })()
