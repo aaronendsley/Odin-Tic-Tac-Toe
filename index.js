@@ -15,15 +15,16 @@
       symbol: "O",
       winner: false
     },
+    currentPlayer: 'player1'
   }
 
 
-  function play(player, cell) {
+  function play(cell) {
     //claim the grid with the players symbol
     if (GameData.gameBoard[cell] === '') {
-      GameData.gameBoard[cell] = GameData[player].symbol;
-      checkWin(player);
-      console.log(GameData.gameBoard);
+      GameData.gameBoard[cell] = GameData[GameData.currentPlayer].symbol;
+      checkWin(GameData.currentPlayer);
+      setCurrentPlayer()
     } else {
       return;
     }
@@ -32,7 +33,11 @@
   }
 
   function setCurrentPlayer() {
-    //set the currentPlayer
+    if (GameData.currentPlayer === 'player1') {
+      GameData.currentPlayer = 'player2';
+    } else {
+      GameData.currentPlayer = "player1";
+    }
   }
 
   function checkWin(player) {
@@ -59,8 +64,18 @@
 
 
   // Ui functions
+  function setUpInterface() {
+    createListeners();
+  }
 
-
-
-
+  function createListeners() {
+    const AllSquares = Array.from(document.querySelectorAll('.square'));
+    AllSquares.forEach(function (square) {
+      square.addEventListener('click', function () {
+        square.textContent = GameData[GameData.currentPlayer].symbol;
+        play(square.attributes[1].nodeValue);
+      })
+    })
+  }
+  setUpInterface();
 })()
