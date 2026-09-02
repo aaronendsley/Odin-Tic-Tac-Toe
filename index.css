@@ -49,7 +49,9 @@ ul[class] {
 button {
   cursor: pointer;
 }
-
+h1{
+    text-align: center;
+}
 #gameboard{
     border: solid 5px #000;
     display: grid;
@@ -67,4 +69,27 @@ button {
     font-size: clamp(2rem, 12vw, 5rem);
     border: 2px solid #222;
     cursor: pointer;
+}
+
+#players{
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+.player{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player h2, p{
+    text-align: center;
+}
+
+@media (min-width: 1000px){
+    #players{
+        width: 200px;
+    }
 }

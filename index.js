@@ -7,14 +7,19 @@
       '', '', ''
     ],
     player1: {
+      name: '',
+      score:0,
       symbol: "X",
       winner: false
     },
     player2: {
+      name: '',
+      score:0,
       symbol: "O",
       winner: false
     },
-    currentPlayer: 'player1'
+    currentPlayer: 'player1',
+    message: '',
   }
 
 
@@ -68,6 +73,7 @@
   // Ui functions
   function setUpInterface() {
     createListeners();
+    createPlayerStats();
   }
 
   function createListeners() {
@@ -78,6 +84,10 @@
         play(square.attributes[1].nodeValue);
       })
     })
+  }
+
+  function createPlayerStats() {
+
   }
   setUpInterface();
 })()
