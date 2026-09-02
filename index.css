@@ -49,3 +49,22 @@ ul[class] {
 button {
   cursor: pointer;
 }
+
+#gameboard{
+    border: solid 5px #000;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: min(90vw, 420px);
+    margin: 0 auto;
+}
+
+.square{
+    border: solid 3px #000;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    font-size: clamp(2rem, 12vw, 5rem);
+    border: 2px solid #222;
+    cursor: pointer;
+}

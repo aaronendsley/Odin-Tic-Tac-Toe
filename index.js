@@ -1,4 +1,4 @@
-let test = (function ticTacToe() {
+(function ticTacToe() {
   // Have all code for the game be in here
 
   const GameData = {
@@ -55,14 +55,12 @@ let test = (function ticTacToe() {
     })) {
       console.log(`${player} has won the game`);
     }
-
   }
 
-  return {
-    play,
-    setCurrentPlayer,
-    checkWin,
-    GameData
-  }
+
+  // Ui functions
+
+
+
 
 })()
