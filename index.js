@@ -1,6 +1,5 @@
 (function ticTacToe() {
   // Have all code for the game be in here
-
   const GameData = {
     gameBoard: [
       '', '', '',
@@ -59,9 +58,12 @@
       })
     })) {
       console.log(`${player} has won the game`);
+    } else {
+      if (GameData.gameBoard.every((position) => position !== '')) {
+        console.log('its a tie');
+      }
     }
   }
-
 
   // Ui functions
   function setUpInterface() {
