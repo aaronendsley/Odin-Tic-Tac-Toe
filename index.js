@@ -37,7 +37,6 @@ let test = (function ticTacToe() {
 
   function checkWin(player) {
     const PlayerSymbol = GameData[player].symbol;
-
     const winningLines = [
        [0, 1, 2],
        [3, 4, 5],
@@ -48,6 +47,14 @@ let test = (function ticTacToe() {
        [0, 4, 8],
        [2, 4, 6],
      ];
+
+    if(winningLines.some(function (pattern) {
+      return pattern.every(function (position) {
+        return GameData.gameBoard[position] === PlayerSymbol;
+      })
+    })) {
+      console.log(`${player} has won the game`);
+    }
 
   }
 
