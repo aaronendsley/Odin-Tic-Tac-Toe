@@ -15,9 +15,6 @@ let test = (function ticTacToe() {
       symbol: "O",
       winner: false
     },
-    currentPlayer: {
-      symbol:''
-    }
   }
 
 
@@ -25,19 +22,22 @@ let test = (function ticTacToe() {
     //claim the grid with the players symbol
     if (GameData.gameBoard[cell] === '') {
       GameData.gameBoard[cell] = GameData[player].symbol;
-       console.log(GameData.gameBoard);
+      checkWin(player);
+      console.log(GameData.gameBoard);
     } else {
       return;
     }
+
     //change current player
   }
-
 
   function setCurrentPlayer() {
     //set the currentPlayer
   }
 
   function checkWin(player) {
+    const PlayerSymbol = GameData[player].symbol;
+
     const winningLines = [
        [0, 1, 2],
        [3, 4, 5],
@@ -48,7 +48,6 @@ let test = (function ticTacToe() {
        [0, 4, 8],
        [2, 4, 6],
      ];
-
 
   }
 
