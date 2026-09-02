@@ -13,12 +13,12 @@
         <h1>TIC TAC TOE</h1>
         <div id="players">
             <div id="player1" class="player">
-                <h2 id="player1_name">Bob</h2>
-                <p id="player1_score">0</p>
+                <h2 id="player1_name"></h2>
+                <p id="player1_score"></p>
             </div>
             <div id="player2" class="player">
-                <h2 id="player2_name">Bob2</h2>
-                <p id="player2_score">0</p>
+                <h2 id="player2_name"></h2>
+                <p id="player2_score"></p>
             </div>
         </div>
         <!-- Your game content goes here -->
@@ -34,6 +34,23 @@
             <div class="square" data-cell="8"></div>
         </div>
         <p id="message"></p>
+    </div>
+    <div id="get_user_names">
+        <p>Who will be playing the game</p>
+        <form id="userForm">
+          <div>
+            <label for="player_one_name">Player One:</label>
+            <input type="text" id="player_one_name" name="player_one_name" required>
+          </div>
+
+          <div>
+            <label for="playerTwoName">Player Two:</label>
+            <input type="text" id="playerTwoName" name="playerTwoName" required>
+          </div>
+
+          <button type="button">Play The Game</button>
+        </form>
+
     </div>
 
     <script src="index.js" defer></script>

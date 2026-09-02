@@ -88,6 +88,36 @@ h1{
     text-align: center;
 }
 
+#get_user_names{
+    background: #fff;
+    position: fixed;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#userForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#userForm input{
+    margin-top: 10px;
+}
+
+#userForm button{
+    margin: 10px auto;
+}
+
 @media (min-width: 1000px){
     #players{
         width: 200px;
