@@ -118,6 +118,25 @@ h1{
     margin: 10px auto;
 }
 
+#gameOver{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction:column;
+    background-color: rgba(000, 000, 000, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+    justify-content: center;
+    align-items: flex-start;
+    display: none;
+}
+#gameOver button{
+    margin: 10px auto;
+
+}
+
 @media (min-width: 1000px){
     #players{
         width: 200px;
