@@ -28,7 +28,11 @@
     if (GameData.gameBoard[cell] === '') {
       GameData.gameBoard[cell] = GameData[GameData.currentPlayer].symbol;
       checkWin(GameData.currentPlayer);
-      setCurrentPlayer()
+      if (!GameData[GameData.currentPlayer].winner) {
+        setCurrentPlayer();
+        changeMessage(`${GameData[GameData.currentPlayer].name} it's your turn!`)
+      }
+
     } else {
       return;
     }
@@ -39,8 +43,10 @@
   function setCurrentPlayer() {
     if (GameData.currentPlayer === 'player1') {
       GameData.currentPlayer = 'player2';
+
     } else {
       GameData.currentPlayer = "player1";
+
     }
   }
 
@@ -63,6 +69,9 @@
       })
     })) {
       changeMessage(`${GameData[player].name} Has Won!`)
+      GameData[player].winner = true;
+      GameData[player].score = GameData[player].score + 1
+      updateUIScore(player);
     } else {
       if (GameData.gameBoard.every((position) => position !== '')) {
         changeMessage('Its a tie');
