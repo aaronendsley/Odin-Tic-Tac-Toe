@@ -121,7 +121,6 @@ h1{
 #gameOver{
     width: 100vw;
     height: 100vh;
-    display: flex;
     flex-direction:column;
     background-color: rgba(000, 000, 000, 0.5);
     position: fixed;
@@ -132,6 +131,7 @@ h1{
     align-items: flex-start;
     display: none;
 }
+
 #gameOver button{
     margin: 10px auto;
 

@@ -72,9 +72,11 @@
       GameData[player].winner = true;
       GameData[player].score = GameData[player].score + 1
       updateUIScore(player);
+      document.getElementById('gameOver').style.display = "flex";
     } else {
       if (GameData.gameBoard.every((position) => position !== '')) {
         changeMessage('Its a tie');
+        document.getElementById('gameOver').style.display = "flex";
       }
     }
   }
