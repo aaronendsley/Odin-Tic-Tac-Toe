@@ -81,10 +81,41 @@
     }
   }
 
+  function playAgain() {
+    GameData.player1.winner = false;
+    GameData.player2.winner = false;
+    GameData.gameBoard = [
+      '', '', '',
+      '', '', '',
+      '', '', ''
+    ];
+    GameData.currentPlayer = 'player1';
+  }
+
+  function reset() {
+
+  }
+
   // Ui functions
   function setUpInterface() {
     createListeners();
     createPlayerStats();
+    setUpResetButtons();
+  }
+
+  function setUpResetButtons() {
+    document.getElementById('playAgain').addEventListener('click', function () {
+      playAgain();
+      document.getElementById('gameOver').style.display = "none";
+      changeMessage(`${GameData.player1.name} it's your turn!`);
+      clearSquares();
+    })
+  }
+
+  function clearSquares() {
+    Array.from(document.querySelectorAll('.square')).forEach(function (square) {
+      square.textContent = '';
+    })
   }
 
   function createListeners() {
