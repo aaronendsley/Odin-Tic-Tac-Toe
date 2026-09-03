@@ -19,7 +19,7 @@
       winner: false
     },
     currentPlayer: 'player1',
-    message: '',
+
   }
 
 
@@ -62,10 +62,10 @@
         return GameData.gameBoard[position] === PlayerSymbol;
       })
     })) {
-      console.log(`${player} has won the game`);
+      changeMessage(`${GameData[player].name} Has Won!`)
     } else {
       if (GameData.gameBoard.every((position) => position !== '')) {
-        console.log('its a tie');
+        changeMessage('Its a tie');
       }
     }
   }
@@ -93,10 +93,9 @@
       GameData.player1.name = getUserNames[0].value;
       GameData.player2.name = getUserNames[1].value;
       document.getElementById('get_user_names').style.display = "none"
-      getUserNames[0].value = ""
-      getUserNames[1].value = ""
-      GameData.message = `${GameData.player1.name} it is your turn!`
-      changeMessage();
+      getUserNames[0].value = "";
+      getUserNames[1].value = "";
+      changeMessage(`${GameData.player1.name} it is your turn!`);
       updateUIScore('player1');
       updateUIScore('player2');
       document.getElementById('player1_name').textContent = GameData.player1.name;
@@ -104,8 +103,8 @@
     })
   }
 
-  function changeMessage() {
-    document.getElementById('message').textContent = GameData.message;
+  function changeMessage(message) {
+    document.getElementById('message').textContent = message;
   }
 
   function updateUIScore(player) {
