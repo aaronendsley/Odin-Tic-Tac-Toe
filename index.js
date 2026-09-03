@@ -32,7 +32,6 @@
         setCurrentPlayer();
         changeMessage(`${GameData[GameData.currentPlayer].name} it's your turn!`)
       }
-
     } else {
       return;
     }
@@ -81,7 +80,7 @@
     }
   }
 
-  function playAgain() {
+  function resetCurrentRound() {
     GameData.player1.winner = false;
     GameData.player2.winner = false;
     GameData.gameBoard = [
@@ -92,8 +91,15 @@
     GameData.currentPlayer = 'player1';
   }
 
-  function reset() {
+  function resetPlayer(player) {
+    GameData[player].name = '';
+    GameData[player].score = 0;
+    GameData[player].winner = false;
+  }
 
+  function reset() {
+    resetPlayer('player1');
+    resetPlayer('player2');
   }
 
   // Ui functions
@@ -105,13 +111,33 @@
 
   function setUpResetButtons() {
     document.getElementById('playAgain').addEventListener('click', function () {
-      playAgain();
+      resetCurrentRound();
       document.getElementById('gameOver').style.display = "none";
       changeMessage(`${GameData.player1.name} it's your turn!`);
       clearSquares();
     })
+
+    document.getElementById('reset').addEventListener('click', function () {
+      reset();
+      changeMessage('');
+      clearSquares();
+      GameData.gameBoard = [
+        '', '', '',
+        '', '', '',
+        '', '', ''
+      ];
+      GameData.currentPlayer = 'player1';
+      document.getElementById('get_user_names').style.display = "flex";
+      document.getElementById('gameOver').style.display = 'none';
+      clearUserUI('player1');
+      clearUserUI('player2');
+    })
   }
 
+  function clearUserUI(player) {
+    document.getElementById(`${player}_name`).textContent = '';
+    document.getElementById(`${player}_score`).textContent = '';
+  }
   function clearSquares() {
     Array.from(document.querySelectorAll('.square')).forEach(function (square) {
       square.textContent = '';
