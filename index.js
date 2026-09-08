@@ -152,9 +152,11 @@
       square.addEventListener('click', function () {
 
         //This needs to be fixed so that it gets called in the play function after its checked to see if the square that is being clicked has anything in it. Right now its overiding already claimed squares.
+        //
+        if (square.textContent === ''){
         square.textContent = GameData[GameData.currentPlayer].symbol;
-
-        play(square.getAttribute('data-cell'));
+          play(square.getAttribute('data-cell'));
+        }
       })
     })
   }
