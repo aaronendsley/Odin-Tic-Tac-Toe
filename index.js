@@ -27,8 +27,8 @@
     //claim the grid with the players symbol
     if (GameData.gameBoard[cell] === '') {
       GameData.gameBoard[cell] = GameData[GameData.currentPlayer].symbol;
-      checkWin(GameData.currentPlayer);
-      if (!GameData[GameData.currentPlayer].winner) {
+      let isAWin = checkWin(GameData.currentPlayer);
+      if (!GameData[GameData.currentPlayer].winner && isAWin !== 'tie') {
         setCurrentPlayer();
         changeMessage(`${GameData[GameData.currentPlayer].name} it's your turn!`)
       }
@@ -72,10 +72,12 @@
       GameData[player].score = GameData[player].score + 1
       updateUIScore(player);
       document.getElementById('gameOver').style.display = "flex";
+
     } else {
       if (GameData.gameBoard.every((position) => position !== '')) {
         changeMessage('Its a tie');
         document.getElementById('gameOver').style.display = "flex";
+        return 'tie'
       }
     }
   }
@@ -148,8 +150,11 @@
     const AllSquares = Array.from(document.querySelectorAll('.square'));
     AllSquares.forEach(function (square) {
       square.addEventListener('click', function () {
+
+        //This needs to be fixed so that it gets called in the play function after its checked to see if the square that is being clicked has anything in it. Right now its overiding already claimed squares.
         square.textContent = GameData[GameData.currentPlayer].symbol;
-        play(square.attributes[1].nodeValue);
+
+        play(square.getAttribute('data-cell'));
       })
     })
   }
