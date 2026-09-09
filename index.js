@@ -1,5 +1,9 @@
 (function ticTacToe() {
   // Have all code for the game be in here
+  //
+
+  const allSquares = Array.from(document.querySelectorAll('.square'));
+
   const GameData = {
     gameBoard: [
       '', '', '',
@@ -27,6 +31,7 @@
     //claim the grid with the players symbol
     if (GameData.gameBoard[cell] === '') {
       GameData.gameBoard[cell] = GameData[GameData.currentPlayer].symbol;
+      updateSquareUI(cell);
       let isAWin = checkWin(GameData.currentPlayer);
       if (!GameData[GameData.currentPlayer].winner && isAWin !== 'tie') {
         setCurrentPlayer();
@@ -141,24 +146,25 @@
     document.getElementById(`${player}_score`).textContent = '';
   }
   function clearSquares() {
-    Array.from(document.querySelectorAll('.square')).forEach(function (square) {
+    allSquares.forEach(function (square) {
       square.textContent = '';
     })
   }
 
   function createListeners() {
-    const AllSquares = Array.from(document.querySelectorAll('.square'));
-    AllSquares.forEach(function (square) {
+   allSquares.forEach(function (square) {
       square.addEventListener('click', function () {
-
-        //This needs to be fixed so that it gets called in the play function after its checked to see if the square that is being clicked has anything in it. Right now its overiding already claimed squares.
-        //
-        if (square.textContent === ''){
-        square.textContent = GameData[GameData.currentPlayer].symbol;
           play(square.getAttribute('data-cell'));
-        }
       })
     })
+  }
+
+  function updateSquareUI(square) {
+    const targetSquare = allSquares[square];
+
+    if (targetSquare) {
+      targetSquare.textContent = GameData[GameData.currentPlayer].symbol;
+    }
   }
 
   function createPlayerStats() {
