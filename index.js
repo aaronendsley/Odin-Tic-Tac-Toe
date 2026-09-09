@@ -154,7 +154,7 @@
   function createListeners() {
    allSquares.forEach(function (square) {
       square.addEventListener('click', function () {
-          play(square.getAttribute('data-cell'));
+          play(parseInt(square.getAttribute('data-cell'), 10));
       })
     })
   }
