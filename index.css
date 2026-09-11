@@ -53,6 +53,7 @@ button {
 }
 h1{
     text-align: center;
+    margin-bottom: 30px;
 }
 #gameboard{
     border: solid 5px #8ffcff;
@@ -88,6 +89,7 @@ h1{
 .player h2, p{
     text-align: center;
     font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 #get_user_names{
@@ -124,6 +126,7 @@ h1{
 
 #userForm input{
     margin-top: 20px;
+    margin-left: 10px;
     border-radius: 10px;
     background: #000;
     border: solid #8ffcff 2px;
