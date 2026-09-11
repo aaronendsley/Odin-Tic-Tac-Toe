@@ -15,6 +15,8 @@ body {
   -webkit-font-smoothing: antialiased;
   font-family: sans-serif;
   min-height: 100vh;
+  background-color: #000;
+  color: #8ffcff;
 }
 
 img,
@@ -53,7 +55,7 @@ h1{
     text-align: center;
 }
 #gameboard{
-    border: solid 5px #000;
+    border: solid 5px #8ffcff;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
@@ -62,12 +64,11 @@ h1{
 }
 
 .square{
-    border: solid 3px #000;
+    border: solid 2px #8ffcff;
     aspect-ratio: 1;
     display: grid;
     place-items: center;
     font-size: clamp(2rem, 12vw, 5rem);
-    border: 2px solid #222;
     cursor: pointer;
 }
 
@@ -86,10 +87,13 @@ h1{
 
 .player h2, p{
     text-align: center;
+    font-size: 2rem;
 }
 
 #get_user_names{
-    background: #fff;
+    background: #000;
+    color: #00f9ff;
+    font-size: 1.2rem;
     position: fixed;
     z-index: 10;
     width: 100vw;
@@ -108,14 +112,39 @@ h1{
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    padding: 40px;
+    border: solid #8ffcff 2px;
+    border-radius: 10px;
+}
+
+#userForm p{
+    align-self: center;
+    margin-bottom: 10px;
 }
 
 #userForm input{
-    margin-top: 10px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background: #000;
+    border: solid #8ffcff 2px;
+    height: 50px;
+    color: #8ffcff;
+    padding: 10px;
+
 }
 
 #userForm button{
-    margin: 10px auto;
+    align-self: center;
+    background: #8ffcff;
+    color: #000;
+    width: fit-content;
+    height: 60px;
+    border-radius: 20px;
+    border: none;
+    padding: 5px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    width: 60%;
 }
 
 #gameOver{
@@ -133,9 +162,22 @@ h1{
 }
 
 #gameOver button{
-    margin: 10px auto;
+   align-self: center;
+   margin-top: 20px;
+   color: #000;
+   background: #8ffcff;
+   border:none;
+   padding: 10px;
+   font-size:1.2rem;
+   border-radius: 20px;
 
 }
+
+#message{
+    font-size: 2rem;
+}
+
+
 
 @media (min-width: 1000px){
     #players{
